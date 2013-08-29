@@ -5,7 +5,10 @@
 
 	Kyle Harris		9621121
 
+	http://github.com/Cybot101/HIT3172-CS1-Monopoly
+
 */
+
 
 #include "Die.h"
 
@@ -39,6 +42,8 @@ int main(int argc, char *argv[])
 		cout << i << ":" << freq[i] << endl;
 
 	cout << "Mean: " << mean/100 << " -> " << (int)(mean/100) << endl;
+
+	system("pause");
 
 	return 0;
 }

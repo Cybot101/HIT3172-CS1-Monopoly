@@ -1,6 +1,26 @@
+/*
+	HIT3172 - Object Orientated Programming C++
+
+	Case Study 1 :: Monopoly
+
+	Kyle Harris		9621121
+
+	http://github.com/Cybot101/HIT3172-CS1-Monopoly
+
+	**********************************************
+
+	Die - Implementation
+
+	Die class to mimic a real-life dice (die) for use 
+	within the Monopoly game.
+
+*/
+
+
 #include "Die.h"
 
 #include <stdlib.h>
+#include <time.h>
 
 /**
 	Constructor - builds the Die object
@@ -10,6 +30,9 @@
 Die::Die(int aSides)
 {
 	_sides = aSides;
+
+	// Init random generator with a random seed (based on current time)
+	srand(time(NULL));
 }
 
 
