@@ -11,6 +11,7 @@
 
 
 #include "Die.h"
+#include "Dice.h"
 
 #include <iostream>
 
@@ -18,30 +19,24 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	Die dice(11);
+	Dice *_dice = new Dice();
 
-	int freq[12] = {0};
-	double mean = 0;
+	_dice->add_die(new Die(6));
+	_dice->add_die(new Die(6));
 
-	for (int i=0; i<100; i++)
+	for (int i=0; i<10; i++)
 	{
-		dice.roll();
-		
-		freq[dice.get_top_value()]++;
+		// Roll all the dice
+		_dice->roll();
 
-		mean += dice.get_top_value();
+		// Print each value
+		cout << "Die 1 = " << _dice->die_at(0)->get_top_value() << endl;
+		cout << "Die 2 = " << _dice->die_at(1)->get_top_value() << endl;
 
-		//cout << dice.get_top_value() << endl;
+		// Print total value
+		cout << "Total = " << _dice->get_total_value() << endl << endl;
+
 	}
-
-	cout << "Dice roll frequency" << endl;
-
-	
-
-	for (int i=1; i<12; i++)
-		cout << i << ":" << freq[i] << endl;
-
-	cout << "Mean: " << mean/100 << " -> " << (int)(mean/100) << endl;
 
 	system("pause");
 
