@@ -12,6 +12,8 @@
 
 #include "Die.h"
 #include "Dice.h"
+#include "Board.h"
+#include "Player.h"
 
 #include <iostream>
 
@@ -19,26 +21,94 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	Dice *_dice = new Dice();
+	// Iteration 3
+	
+	// Create a game Board
+	Board *_board = new Board();
 
-	_dice->add_die(new Die(6));
-	_dice->add_die(new Die(6));
+	const int _num_tiles = 15;
 
-	for (int i=0; i<10; i++)
+	std::string tiles[_num_tiles] = 
 	{
-		// Roll all the dice
-		_dice->roll();
+		"GO",
+		"Old Kent Road",
+		"Comunity Chest 1",
+		"Whitechapel Road",
+		"Income Tax 1",
+		"Railroad 1",
+		"The Angel Islington",
+		"Chance 1",
+		"Euston Road",
+		"Pentonville Road",
+		"Jail",
+		"Pall Mall",
+		"Electricity",
+		"Whitehall Road",
+		"Northumberland Avenue"
+	};
 
-		// Print each value
-		cout << "Die 1 = " << _dice->die_at(0)->get_top_value() << endl;
-		cout << "Die 2 = " << _dice->die_at(1)->get_top_value() << endl;
-
-		// Print total value
-		cout << "Total = " << _dice->get_total_value() << endl << endl;
-
+	// Create tiles
+	for (int i=0; i < _num_tiles; i++)
+	{
+		_board->add_tile(new Tile(tiles[i]));
 	}
 
-	system("pause");
+	// Link last tile to first
+	(*_board)[ _num_tiles-1 ]->set_next( (*_board)[0] );
+
+	// Link all tiles
+	for (int i=0; i<(_num_tiles-1); i++)
+	{
+		(*_board)[i]->set_next( (*_board)[i+1] );
+	}
+
+	
+	Player * kyle = new Player("Kyle");
+	Player * bob = new Player("Kyle");
+	Dice * roller = new Dice();
+	roller->add_die(new Die(6));
+	roller->add_die(new Die(6));
+
+	kyle->place_on( (Tile *)_board->tile_named("GO") );
+	bob->place_on( (Tile *)_board->tile_named("GO") );
+
+	
+	/*for (int i=0; i < _board->tile_count() -1 ; i++)
+	{
+		std::cout << (_board->tile_at(i)->str()) << endl;
+	}*/
+
+	char key;
+
+	do
+	{
+		cout << endl << "'r' to roll, 'q' to quit" << endl << "> ";
+		std::cin >> key;
+		switch (key)
+		{
+		case 'r':
+			kyle->move(roller);
+			cout << "Kyle's roll: " << roller->get_total_value() << endl;
+			cout << (*kyle->on_tile()) << endl << endl;
+
+			bob->move(roller);
+			cout << "Bob's roll: " << roller->get_total_value() << endl;
+			cout << (*bob->on_tile()) << endl;
+
+			break;
+		}
+
+
+		/*for (int i=0; i < _board->tile_count() -1 ; i++)
+		{
+			std::cout << (_board->tile_at(i)->str()) << endl;
+		}*/
+	} while (key != 'q');
+
+
+	delete _board, roller, kyle;
+	
+	//system("pause");
 
 	return 0;
 }
