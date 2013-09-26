@@ -98,7 +98,7 @@ int Dice::get_total_value()
 */
 bool Dice::all_same()
 {
-	if (_die.size() > 2)
+	if (_die.size() >= 2)
 	{
 		bool same = true;
 

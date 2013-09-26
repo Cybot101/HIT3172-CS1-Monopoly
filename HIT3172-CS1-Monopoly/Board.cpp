@@ -42,7 +42,8 @@ Tile *Board::tile_at(int _aIndex)
 }
 
 /**
-	Return Tile in collectiong with the name specified.
+	Return Tile in collecting with the name specified.
+	Will only return first tile found.
 
 	@param string Name of tile to find
 	@return Tile Tile found with given name

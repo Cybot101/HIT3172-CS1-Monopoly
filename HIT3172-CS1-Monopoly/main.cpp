@@ -10,105 +10,68 @@
 */
 
 
-#include "Die.h"
-#include "Dice.h"
-#include "Board.h"
-#include "Player.h"
-
+#include "MonopolyGame.h"
 #include <iostream>
+
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-	// Iteration 3
+	// Iteration 4
 	
-	// Create a game Board
-	Board *_board = new Board();
+	cout << "#   HIT3172  -  Object Orientated C++    #" << endl;
+	cout << "#   Monopoly                             #" << endl;
+	cout << "#  Kyle Harris   9621121                 #" << endl << endl;
 
-	const int _num_tiles = 15;
+	MonopolyGame *game = new MonopolyGame();
 
-	std::string tiles[_num_tiles] = 
+	cout << "# How many players are there?" << endl << "> ";
+	int playerNum = 0;
+	string name, name2;
+	cin >> playerNum;
+
+	if (playerNum > 0)
 	{
-		"GO",
-		"Old Kent Road",
-		"Comunity Chest 1",
-		"Whitechapel Road",
-		"Income Tax 1",
-		"Railroad 1",
-		"The Angel Islington",
-		"Chance 1",
-		"Euston Road",
-		"Pentonville Road",
-		"Jail",
-		"Pall Mall",
-		"Electricity",
-		"Whitehall Road",
-		"Northumberland Avenue"
-	};
-
-	// Create tiles
-	for (int i=0; i < _num_tiles; i++)
-	{
-		_board->add_tile(new Tile(tiles[i]));
-	}
-
-	// Link last tile to first
-	(*_board)[ _num_tiles-1 ]->set_next( (*_board)[0] );
-
-	// Link all tiles
-	for (int i=0; i<(_num_tiles-1); i++)
-	{
-		(*_board)[i]->set_next( (*_board)[i+1] );
-	}
-
-	
-	Player * kyle = new Player("Kyle");
-	Player * bob = new Player("Kyle");
-	Dice * roller = new Dice();
-	roller->add_die(new Die(6));
-	roller->add_die(new Die(6));
-
-	kyle->place_on( (Tile *)_board->tile_named("GO") );
-	bob->place_on( (Tile *)_board->tile_named("GO") );
-
-	
-	/*for (int i=0; i < _board->tile_count() -1 ; i++)
-	{
-		std::cout << (_board->tile_at(i)->str()) << endl;
-	}*/
-
-	char key;
-
-	do
-	{
-		cout << endl << "'r' to roll, 'q' to quit" << endl << "> ";
-		std::cin >> key;
-		switch (key)
+		for (int i=0; i<playerNum; i++)
 		{
-		case 'r':
-			kyle->move(roller);
-			cout << "Kyle's roll: " << roller->get_total_value() << endl;
-			cout << (*kyle->on_tile()) << endl << endl;
+			cout << "# Player " << (i+1) << "'s name?" << endl << "> ";
+			cin >> name;
 
-			bob->move(roller);
-			cout << "Bob's roll: " << roller->get_total_value() << endl;
-			cout << (*bob->on_tile()) << endl;
-
-			break;
+			Player * player = new Player(name, game);
+			game->add_player(player);
 		}
-
-
-		/*for (int i=0; i < _board->tile_count() -1 ; i++)
-		{
-			std::cout << (_board->tile_at(i)->str()) << endl;
-		}*/
-	} while (key != 'q');
-
-
-	delete _board, roller, kyle;
 	
-	//system("pause");
+
+		char key;
+
+		do
+		{
+			cout << "Player: " << game->current_player()->str();
+			cout << endl << "'r' to roll, 'q' to quit" << endl << "> ";
+			std::cin >> key;
+			switch (key)
+			{
+			case 'r':
+				game->perform_move();	// Rolls for current player
+				//cout << "Roll : " << game->get_dice()->die_at(0)->get_top_value() << " + " <<
+				//	game->get_dice()->die_at(1)->get_top_value() << endl << endl;	// Assuming 2 dies
+				break;
+			}
+
+		} while (key != 'q');
+	}
+
+	delete game;
 
 	return 0;
+}
+
+/**
+	Helper function to print pretty player info to console
+*/
+void print_player(Player *_p)
+{
+	//int cash = _p->cash();
+
 }

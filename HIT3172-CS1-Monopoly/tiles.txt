@@ -1,0 +1,40 @@
+GO
+Old Kent Road
+Community Chest 1
+Whitechapel Road
+Income Tax (200)
+King’s Cross Station
+The Angel Islington
+Chance 1
+Euston Road
+Pentonville Road
+Jail/visiting
+Pall Mall
+Electric Company
+Whitehall
+Northumberland Avenue
+Marylebone Station
+Bow Street
+Community Chest 2
+Marlborough Street
+Vine Street
+Free Parking
+The Strand
+Chance 2
+Fleet Street
+Trafalgar Square
+Fenchurch St Station
+Leicester Square
+Coventry Street
+Water Works
+Piccadilly
+Go To Jail
+Regent Street
+Oxford Street
+Community Chest 3
+Bond Street
+Liverpool Street Station
+Chance 3
+Park Lane
+Super Tax (100)
+Mayfair

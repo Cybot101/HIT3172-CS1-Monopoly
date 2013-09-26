@@ -68,15 +68,28 @@
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Die.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MonopolyEvent.cpp" />
+    <ClCompile Include="MonopolyGame.cpp" />
+    <ClCompile Include="MoveAction.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TransAction.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Die.h" />
+    <ClInclude Include="MonopolyEvent.h" />
+    <ClInclude Include="MonopolyGame.h" />
+    <ClInclude Include="MoveAction.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="TransAction.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="actions.txt" />
+    <Text Include="tiles.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
