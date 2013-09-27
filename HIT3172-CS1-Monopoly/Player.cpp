@@ -65,14 +65,17 @@ void Player::move(Dice *_aDice)
 	// Roll of the dice
 	_aDice->roll();
 	
-	_playing->anounce_monopoly_event(MonopolyEvent(this, "Player rolled dice", EventKind::DICE_EVENT, _aDice) );
+	std::stringstream s;
+	s << "Player rolled dice: " << _aDice->get_total_value();
+
+	_playing->anounce_monopoly_event(MonopolyEvent(this, s.str() , EventKind::DICE_EVENT, _aDice) );
 	
 	if (_isOn != NULL)			// Player is on a tile
 	{
 		_isOn->leave(this);
 		_isOn->move(this, _aDice, _aDice->get_total_value());
 
-		_playing->anounce_monopoly_event(MonopolyEvent(this, "Player moved", EventKind::MOVE_EVENT, _aDice) );
+		_playing->anounce_monopoly_event(MonopolyEvent(this, "Player moved with dice", EventKind::MOVE_EVENT, _aDice) );
 	}
 }
 
@@ -104,7 +107,10 @@ void Player::change_cash(int _aDeltaCash, std::string _aDesc)
 {
 	_cash += _aDeltaCash;
 
-	_playing->anounce_monopoly_event( MonopolyEvent(this, "Player transferred cash", EventKind::TRANSATION_EVENT, NULL) );
+	std::stringstream s;
+	s << "Player transferred cash: " << _aDeltaCash << " Total: " << _cash;
+
+	_playing->anounce_monopoly_event( MonopolyEvent(this, s.str() , EventKind::TRANSATION_EVENT, NULL) );
 }
 
 /**

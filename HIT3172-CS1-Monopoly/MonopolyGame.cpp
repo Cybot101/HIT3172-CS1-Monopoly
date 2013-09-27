@@ -6,6 +6,10 @@
 #include <string>
 #include <iostream>
 
+/**
+	Create MonopolyGame object and initialise fields.
+	Initialises game board and dice, and sets-up actions.
+*/
 MonopolyGame::MonopolyGame(void)
 {
 	create_board();
@@ -16,6 +20,9 @@ MonopolyGame::MonopolyGame(void)
 	_current_player_idx = 0;
 }
 
+/**
+	Destructor - cleans up player and action collections
+*/
 MonopolyGame::~MonopolyGame(void)
 {
 	for (int i=0; i<_players.size(); i++)
@@ -25,6 +32,10 @@ MonopolyGame::~MonopolyGame(void)
 		delete _actions[i];
 }
 
+/**
+	Created monopoly board by creating tiles from a file
+	list. Links tiles together.
+*/
 void MonopolyGame::create_board()
 {
 	_board = new Board();
@@ -57,6 +68,9 @@ void MonopolyGame::create_board()
 	}
 }
 
+/**
+	Creates dice and adds two six-sided  dies to it.
+*/
 void MonopolyGame::create_dice()
 {
 	_dice = new Dice();
@@ -121,16 +135,30 @@ void MonopolyGame::setup_board_actions()
 	actionFile.close();
 }
 
+/**
+	Public access for current player.
+
+	@return Player* Current player
+*/
 Player *MonopolyGame::current_player()
 {
 	return _players[_current_player_idx];
 }
+/**
+	Returns number of players in the game.
 
+	@return int Number of players
+*/
 int MonopolyGame::player_count()
 {
 	return _players.size();
 }
 
+/**
+	Public access to Dice object.
+
+	@return Dice* Dice object in game
+*/
 Dice *MonopolyGame::get_dice()
 {
 	return _dice;
@@ -141,12 +169,23 @@ Board *MonopolyGame::get_board()
 	return _board;
 }
 
+/**
+	Public access to Board object.
+
+	@return Board* Board object in game
+*/
 void MonopolyGame::add_player(Player *_aPlayer)
 {
 	_players.push_back(_aPlayer);
 	_aPlayer->place_on( _board->tile_at(0) );
 }
 
+/**
+	Retrieves player at specified index within the player 
+	collection.
+
+	@return Player* Player at specified index
+*/
 Player *MonopolyGame::player_at(int _aIndex)
 {
 	if (_aIndex >= 0 && _aIndex < _players.size())
@@ -157,9 +196,8 @@ Player *MonopolyGame::player_at(int _aIndex)
 
 void MonopolyGame::perform_move()
 {
-	//Roll dice and move player.
+	//Move player.
 	// if player rolls same number, they get a second turn
-	_dice->roll();
 	_players[_current_player_idx]->move(_dice);
 
 	if ( !_dice->all_same() )

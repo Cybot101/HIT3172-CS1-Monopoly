@@ -101,8 +101,8 @@ void Tile::land(Player *_aPlayer)
 void Tile::leave(Player *_aPlayer)
 {
 	for (unsigned int i=0; i<_players.size(); i++)
-		if (_players[i] == _aPlayer)					// Better way to do this?? 
-			_players.erase(_players.begin() + i);		//http://stackoverflow.com/questions/4442477/remove-ith-item-from-c-stdvector
+		if (_players[i] == _aPlayer)
+			_players.erase(_players.begin() + i);
 }
 
 /**
