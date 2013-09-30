@@ -9,11 +9,10 @@
 
 	**********************************************
 
-	Die - Interface declaration
+	Die - declaration
 
 	Die class to mimic a real-life dice (die) for use 
 	within the Monopoly game.
-
 */
 
 #ifndef _H_DIE

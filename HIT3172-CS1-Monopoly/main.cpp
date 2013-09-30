@@ -6,9 +6,7 @@
 	Kyle Harris		9621121
 
 	http://github.com/Cybot101/HIT3172-CS1-Monopoly
-
 */
-
 
 #include "MonopolyGame.h"
 #include <iostream>

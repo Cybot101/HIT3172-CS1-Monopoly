@@ -13,7 +13,6 @@
 
 	Class to implement the main monopoly game 
 	enviroment. Handles game actions and events.
-
 */
 #ifndef _H_MONOPOLYGAME
 #define _H_MONOPOLYGAME
@@ -51,7 +50,6 @@ public:
 	Player		*player_at(int _aIndex);
 	void		perform_move();
 	void		anounce_monopoly_event(MonopolyEvent e);
-
 };
 
 #endif

@@ -15,7 +15,6 @@
 	particular transaction within the game.
 	MoveAction(s) changes the player's position
 	within the game board;
-
 */
 
 #ifndef _H_MOVEACTION

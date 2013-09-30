@@ -1,3 +1,6 @@
+/**
+	TransAction.cpp
+*/
 #include "TransAction.h"
 
 TransAction::TransAction(int _aVal, std::string _aDesc)

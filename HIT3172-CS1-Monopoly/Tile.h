@@ -15,7 +15,6 @@
 
 	A tile within a Board object. 
 	Tiles are "played on" by the Players.
-
 */
 
 #ifndef _H_TILE
@@ -48,7 +47,7 @@ public:
 	void	set_pass_action(Action *_aAction);
 
 	Tile			*get_next();
-	void			set_next(Tile *_aTile);		// Public setter to set next tile.
+	void			set_next(Tile *_aTile);	// Public setter to set next tile.
 	std::string		str();
 	std::string		get_name();	// Gets name of tile??
 	

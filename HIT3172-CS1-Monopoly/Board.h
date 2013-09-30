@@ -9,12 +9,11 @@
 
 	**********************************************
 
-	Board - Interface declaration
+	Board - declaration
 
 	Class to mimic areal-life game board which players 
 	play on. Boad manages a collection of _Tile_ objects
 	used within the game.
-
 */
 
 #ifndef _H_BOARD

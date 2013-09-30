@@ -11,8 +11,7 @@
 
 	**********************************************
 
-	Player - Interface declaration
-
+	Player - declaration
 */
 
 #ifndef _H_PLAYER

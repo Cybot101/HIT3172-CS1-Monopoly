@@ -14,7 +14,6 @@
 	Dice class to mimic a set of real-life
 	dice.
 	Class contains and handles interractions with Die objects.
-
 */
 
 #ifndef _H_DICE

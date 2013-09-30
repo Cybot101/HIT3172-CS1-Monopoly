@@ -15,7 +15,6 @@
 	particular transaction within the game.
 	TransAction(s) alter amount of cash the player
 	has.
-
 */
 #ifndef _H_TRANSACTION
 #define _H_TRANSACTION

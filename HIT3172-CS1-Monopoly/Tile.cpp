@@ -12,7 +12,6 @@
 	**********************************************
 
 	Tile - Implementation
-
 */
 
 #include "Tile.h"

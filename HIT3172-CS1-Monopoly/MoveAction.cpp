@@ -1,5 +1,7 @@
+/**
+	MoveAction.cpp
+*/
 #include "MoveAction.h"
-
 
 MoveAction::MoveAction(int _aDist, std::string _aDesc)
 {

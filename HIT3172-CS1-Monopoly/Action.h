@@ -14,7 +14,6 @@
 	Completely abstract method to interface Action
 	actions. Actions are performed withing the 
 	Monopoly game to alter the game's state.
-
 */
 
 #ifndef _H_ACTION

@@ -38,7 +38,10 @@ class MonopolyEvent
 {
 public:
 
-	MonopolyEvent(Player *player, std::string description, EventKind kind, void *other);
+	MonopolyEvent(
+		Player *player, 
+		std::string description, 
+		EventKind kind, void *other);
 
 	Player		*player;
 	std::string	description;
@@ -48,6 +51,7 @@ public:
 	std::string str();	//toString method
 };
 
-std::ostream& operator<< (std::ostream, MonopolyEvent *event);
+std::ostream& operator<< (std::ostream, 
+						  MonopolyEvent *event);
 
 #endif

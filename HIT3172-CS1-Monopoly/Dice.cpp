@@ -13,13 +13,12 @@
 
 	Die class to mimic a real-life dice (die) for use 
 	within the Monopoly game.
-
 */
 
 #include "Dice.h"
 
 /**
-	Construcotr.
+	Constructor.
 	Create an empty collection of Die objects.
 */
 Dice::Dice(void)
